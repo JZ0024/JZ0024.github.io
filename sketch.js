@@ -109,11 +109,11 @@ function draw(){
     if (!sound.isPlaying()) {
 
         textSize(height / 8);
-        fill(color_1);
+        fill(color_2);
         text("CLICK TO PLAY", width / 2, height / 2);
 
         textSize(height / 16);
-        fill(color_2);
+        fill(color_1);
         text("Warning: Lots of bright flashing colors", width / 2, height / 2 + height / 8);
     }
 }
