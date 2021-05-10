@@ -42,7 +42,6 @@ function setup() {
     bgColor = color(255, 228, 94);
 
     textFont(font);
-    textSize(height / 8);
     textAlign(CENTER, CENTER);
 
     sound.amp(0.2);
@@ -108,8 +107,13 @@ function draw(){
     }
 
     if (!sound.isPlaying()) {
-        let textFill = lerpColor(color_1, color_2, colorLerp);
-        fill(textFill);
+
+        textSize(height / 8);
+        fill(color_1);
         text("CLICK TO PLAY", width / 2, height / 2);
+
+        textSize(height / 16);
+        fill(color_2);
+        text("Warning: Lots of bright flashing colors", width / 2, height / 2 + height / 8);
     }
 }
