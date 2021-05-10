@@ -87,10 +87,10 @@ function draw(){
         for(let y = -width; y < width; y += 18){
             let s = map(center, 0, 255, .01, .5, true);
             let n = noise(y * 0.01, i * waveform[i] * s * 0.1, frameCount * 0.005);
-            let x = map(n, .1, .5, -height, height) + map(i,10, numLines - 10,-height,height);
-			
+            let x = map(n, .1, .5, -height, width) + map(i,10, highMid % numLines, -height, width);
+
             let d = dist(y, high, mid, x);
-			
+
             let dx = 0;
             let dy = 0;
 
