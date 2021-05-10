@@ -1,7 +1,10 @@
 // Palette: https://coolors.co/5aa9e6-7fc8f8-f9f9f9-ffe45e-ff6392
 // Song: Raucous Rancor -- Kevin Macleod  (https://youtu.be/B1Yn0ItRS94)
+// Font: Karrik -- Jean-Baptiste Morizot, Lucas Le Bihan (Velvetyne Type Foundry)
 
 var spectrum;
+var sound;
+var font;
 
 let maxSize = 5;
 let streamW = 1024;
@@ -22,7 +25,8 @@ function togglePlay() {
 
 // ******** MAIN METHODS ******** //
 function preload() {
-		sound = loadSound('assets/rancor.mp3');
+    sound = loadSound('assets/rancor.mp3');
+    font = loadFont('assets/karrik.otf');
 }
 
 function mouseClicked() {
@@ -36,6 +40,10 @@ function setup() {
     color_1 = color(255, 99, 146);
     color_2 = color(90, 169, 230);
     bgColor = color(255, 228, 94);
+
+    textFont(font);
+    textSize(height / 8);
+    textAlign(CENTER, CENTER);
 
     sound.amp(0.2);
 
@@ -78,7 +86,6 @@ function draw(){
 
         for(let y = -width; y < width; y += 18){
             let s = map(center, 0, 255, .01, .5, true);
-            // let s = center;
             let n = noise(y * 0.01, i * waveform[i] * s * 0.1, frameCount * 0.005);
             let x = map(n, .1, .5, -height, height) + map(i,10, numLines - 10,-height,height);
 			
@@ -98,5 +105,11 @@ function draw(){
         }
 
         endShape();
+    }
+
+    if (!sound.isPlaying()) {
+        let textFill = lerpColor(color_1, color_2, colorLerp);
+        fill(textFill);
+        text("CLICK TO PLAY", width / 2, height / 2);
     }
 }
