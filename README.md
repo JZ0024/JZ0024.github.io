@@ -1,3 +1,3 @@
-# Assignment 4 Website
+# JZ'S WEBSITE
 
-An attempt was made.
+My personal website
