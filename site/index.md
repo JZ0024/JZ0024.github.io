@@ -1,5 +1,5 @@
 ---
-layout: layouts/home.njk
+layout: layouts/home-layout.njk
 title: JZ'S WEBSITE
 ---
 
